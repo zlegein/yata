@@ -31,16 +31,22 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'bower_components/lodash/lodash.js',
+      'bower_components/angular-strap/dist/angular-strap.js',
+      'bower_components/angular-strap/dist/angular-strap.tpl.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
       "test/mock/**/*.js",
-      "test/spec/**/*.js"
+      "test/spec/**/*.js",
+      "app/**/*.html"
     ],
 
     // list of files / patterns to exclude
     exclude: [
     ],
+
 
     // web server port
     port: 8080,
@@ -60,8 +66,20 @@ module.exports = function(config) {
     // Which plugins to enable
     plugins: [
       "karma-phantomjs-launcher",
-      "karma-jasmine"
+      "karma-chrome-launcher",
+      "karma-jasmine",
+      'karma-ng-html2js-preprocessor'
     ],
+
+    preprocessors: {
+      "app/views/*.html": ["ng-html2js"]
+    },
+
+    ngHtml2JsPreprocessor: {
+      stripPrefix: 'app',
+      moduleName: 'my.templates'
+    },
+
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit

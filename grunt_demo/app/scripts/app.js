@@ -15,21 +15,27 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap',
+    'tideLookup',
+    'cityFinder',
+    'search.controller',
+    'tideResults',
+    'constants'
   ])
+  .config(function($locationProvider) {
+    $locationProvider.html5Mode(true);
+    return $locationProvider.hashPrefix('!');
+  })
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        templateUrl: 'views/search.html',
+        controller: 'TideSearchController',
+        controllerAs: 'search'
       })
       .otherwise({
         redirectTo: '/'
       });
   });
+
