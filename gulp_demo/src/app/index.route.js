@@ -8,7 +8,7 @@
   function routeConfig($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'app/components/tide/search.html',
+        templateUrl: 'app/main/search.html',
         controller: 'TideSearchController',
         controllerAs: 'search'
       })

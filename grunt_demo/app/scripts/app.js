@@ -2,35 +2,23 @@
 
 /**
  * @ngdoc overview
- * @name yataApp
+ * @name yata
  * @description
- * # yataApp
+ * # yata
  *
  * Main module of the application.
  */
 angular
-  .module('yataApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-    'ui.bootstrap',
-    'tideLookup',
-    'cityFinder',
-    'search.controller',
-    'tideResults',
-    'constants'
-  ])
-  .config(function($locationProvider) {
-    $locationProvider.html5Mode(true);
-    return $locationProvider.hashPrefix('!');
+  .module('yata', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ngRoute', 'ui.bootstrap'])
+
+  .config(function ($logProvider) {
+    // Enable log
+    $logProvider.debugEnabled(true);
   })
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/search.html',
+        templateUrl: 'scripts/main/search.html',
         controller: 'TideSearchController',
         controllerAs: 'search'
       })

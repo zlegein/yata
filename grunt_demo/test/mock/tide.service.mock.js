@@ -1,20 +1,21 @@
 (function () {
+  'use strict';
 
   function JSONPCallService (ApiKey) {
-    var JSONPCallService = {};
+    var service = {};
 
-    JSONPCallService.selectedCity = {l: "/q/zmw:94101.1.99999"};
+    service.selectedCity = {l: "/q/zmw:94101.1.99999"};
 
-    JSONPCallService.expectedCall = [
+    service.expectedCall = [
       'http://api.wunderground.com/api/',
       ApiKey.wu,
       '/tide',
-      JSONPCallService.selectedCity.l,
+      service.selectedCity.l,
       '.json?callback=JSON_CALLBACK'
     ].join('');
 
-    JSONPCallService.mockResponse = {"tide":{"foo": 2} };
-    return JSONPCallService
+    service.mockResponse = {"tide":{"foo": 2} };
+    return service
   }
 
   angular
